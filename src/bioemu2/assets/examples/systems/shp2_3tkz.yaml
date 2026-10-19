@@ -1,0 +1,15 @@
+# SHP-2 N-SH2 domain bound to two phosphotyrosine peptides (PDB 3TKZ).
+# Phosphotyrosine modelled as Tyr; modified residues are not supported end to end.
+entities:
+  - entity_type: protein
+    asym_ids: [A]
+    sequence: GSHMTSRRWFHPNITGVEAENLLLTRGVDGSFLARPSKSNPGDFTLSVRRNGAVTHIKIQNTGDYYDLYGGEKFATLAELVQYYMEHHGQLKEKNGDVIELKYPLNCAD
+  - entity_type: protein
+    asym_ids: [B, C]
+    sequence: RVIYFVPLNR
+asym_id_to_author_id: {A: A, B: P, C: Q}
+contacts:
+  # Peptide (phospho)tyrosine in the SH2 pocket (FLVR-motif arginine).
+  - token1: {asym_id: A, res_id: 35}
+    token2: {asym_id: B, res_id: 4}
+    max_distance: 6.0

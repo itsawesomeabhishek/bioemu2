@@ -1,0 +1,11 @@
+# Mouse Meteorin-like C-terminal NTR domain (PDB 7TLW, chain A) with its two
+# disulfide bonds. PDB import does not read disulfides, so they are declared as bonds.
+entities:
+  - entity_type: protein
+    asym_ids: [A]
+    sequence: LMSGQRGLDLHVLSAPCRPCSDTEVLLAICTSDFVVRGFIEDVTHVPEQQVSVIYLRVNRLHRQKSRVFQPAPEDSGHWLGHVTTLLQCGVRPGHGEFLFTGHVHFGEAQLGCAPRFSDFQRMYRKAEEMGINPCEINME
+bonds:
+  - atom1: {asym_id: A, res_id: 20, res_name: CYS, name: SG}
+    atom2: {asym_id: A, res_id: 113, res_name: CYS, name: SG}
+  - atom1: {asym_id: A, res_id: 30, res_name: CYS, name: SG}
+    atom2: {asym_id: A, res_id: 135, res_name: CYS, name: SG}

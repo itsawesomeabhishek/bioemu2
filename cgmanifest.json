@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json.schemastore.org/component-detection-manifest.json",
+  "version": 1,
+  "registrations": [
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://git.scicore.unibas.ch/schwede/openstructure.git",
+          "commitHash": "aeebc45c0fc2e3255cb45178013dad5a00999a39",
+          "tag": "2.11.1"
+        },
+        "comments": "OpenStructure 2.11.1 stereo_data.json (CCP4 MON_LIB, LGPL-3.0) and stereochemistry.py link data exported into the packaged stereo_chemistry.yaml (licenses/LICENSE.LGPL-3.0, licenses/LICENSE.GPL-3.0, licenses/LICENSE.GEOSTD)."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/assets/stereo_chemistry.yaml"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/phenix-project/geostd.git",
+          "commitHash": "aef2b63e65ffab32157da4d6422723982a3e7d6d"
+        },
+        "comments": "Historical geostd rna_dna/chain_link_rna2p.cif parameters adapted via OpenStructure for nucleotide links (licenses/LICENSE.GEOSTD). Exact geostd revision used by OpenStructure is not documented; geostd has no tags, so CG cannot generate alerts for this registration."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/assets/stereo_chemistry.yaml"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/jwohlwend/boltz.git",
+          "commitHash": "34cf5600e53f6b641e61291a31e8f5e11e3efd06",
+          "tag": "v1.0.0"
+        },
+        "comments": "Boltz v1.0.0; adapted BioMoA, denoising, steering, MSA, data-interface, and all-atom feature code (licenses/LICENSE.BOLTZ-MIT)."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/biomoa",
+        "src/bioemu2/denoising",
+        "src/bioemu2/msa",
+        "src/bioemu2/data_interface",
+        "src/bioemu2/structure/all_atom_structure.py",
+        "src/bioemu2/structure/inference_inputs.py"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/jwohlwend/boltz.git",
+          "commitHash": "b1ebfc46ecf57f5414e0d1a6f9027bbb122c53bc"
+        },
+        "comments": "Adapted contact-conditioning code and feature conventions (licenses/LICENSE.BOLTZ-MIT). Recorded commit is not tagged upstream; CG cannot generate alerts for this Git registration."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/biomoa/modules/conditioning.py",
+        "src/bioemu2/conditioning/contact.py"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/jwohlwend/boltz.git",
+          "commitHash": "cb04aeccdd480fd4db707f0bbafde538397fa2ac",
+          "tag": "v2.2.1"
+        },
+        "comments": "Boltz revision identified by NVIDIA Fold-CP for derived context-parallel code (licenses/LICENSE.BOLTZ-MIT)."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/context_parallel"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/facebookresearch/pytorch3d.git",
+          "commitHash": "89653419d0973396f3eff1a381ba09a07fffc2ed",
+          "tag": "v0.7.7"
+        },
+        "comments": "Rotation helpers in src/bioemu2/denoising/augmentation.py (licenses/LICENSE.PYTORCH3D-BSD)."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/denoising/augmentation.py"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/rusty1s/pytorch_scatter.git",
+          "commitHash": "8ec9364b0bdcd99149952a25749ad211c2d0567b"
+        },
+        "comments": "Adapted scatter helpers in src/bioemu2/structure/scatter.py (licenses/LICENSE.TORCH-SCATTER-MIT). Recorded commit is not tagged upstream; CG cannot generate alerts for this Git registration."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/structure/scatter.py"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/NVIDIA-BioNeMo/boltz-cp.git",
+          "commitHash": "f76f37a77c854b56b6250b426af8c2d63b501f7f"
+        },
+        "comments": "Adapted context-parallel code under src/bioemu2/context_parallel (licenses/LICENSE.NVIDIA-FOLD-CP-MIT). Upstream has no tags; CG cannot generate alerts for this Git registration."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/context_parallel"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/mdtraj/mdtraj.git",
+          "commitHash": "a2ff6e23ae088dff5c16368eb32722548df4c213",
+          "tag": "1.9.9"
+        },
+        "comments": "Modified Topology.from_openmm and PDBxTrajectoryFile code in src/bioemu2/patches/mdtraj_patcher.py (licenses/LICENSE.LGPL-3.0 and licenses/LICENSE.GPL-3.0)."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/patches/mdtraj_patcher.py"
+      ]
+    },
+    {
+      "component": {
+        "type": "git",
+        "git": {
+          "repositoryUrl": "https://github.com/openmm/openmm.git",
+          "commitHash": "ec797acabe5de4ce9f56c92d349baa889f4b0821",
+          "tag": "8.1.1"
+        },
+        "comments": "Modified PDBxFile code in src/bioemu2/patches/openmm_patches.py and portions of the MDTraj patch (MIT notice in source)."
+      },
+      "detectedComponentLocations": [
+        "src/bioemu2/patches/openmm_patches.py",
+        "src/bioemu2/patches/mdtraj_patcher.py"
+      ]
+    }
+  ]
+}

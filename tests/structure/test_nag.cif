@@ -1,0 +1,91 @@
+data_NAG
+#
+_chem_comp.id                                    NAG
+_chem_comp.name                                  "N-ACETYL-D-GLUCOSAMINE"
+_chem_comp.type                                  "D-saccharide, beta linking"
+_chem_comp.formula                               "C8 H15 N O6"
+#
+loop_
+_chem_comp_atom.comp_id
+_chem_comp_atom.atom_id
+_chem_comp_atom.alt_atom_id
+_chem_comp_atom.type_symbol
+_chem_comp_atom.charge
+_chem_comp_atom.pdbx_align
+_chem_comp_atom.pdbx_aromatic_flag
+_chem_comp_atom.pdbx_leaving_atom_flag
+_chem_comp_atom.pdbx_stereo_config
+_chem_comp_atom.pdbx_model_Cartn_x_ideal
+_chem_comp_atom.pdbx_model_Cartn_y_ideal
+_chem_comp_atom.pdbx_model_Cartn_z_ideal
+_chem_comp_atom.pdbx_ordinal
+NAG C1  C1  C 0 1 N N R  1.430  0.245  0.304  1
+NAG C2  C2  C 0 1 N N R  0.241 -0.489 -0.351  2
+NAG C3  C3  C 0 1 N N R -1.025  0.312 -0.060  3
+NAG C4  C4  C 0 1 N N S -0.857  1.788 -0.422  4
+NAG C5  C5  C 0 1 N N R  0.396  2.401  0.222  5
+NAG C6  C6  C 0 1 N N N  0.561  3.873 -0.131  6
+NAG C7  C7  C 0 1 N N N  0.692 -2.614  0.594  7
+NAG C8  C8  C 0 1 N N N  0.574 -3.870  1.439  8
+NAG N2  N2  N 0 1 N N N  0.451 -1.864 -0.686  9
+NAG O1  O1  O 0 1 N Y N  2.612 -0.398  0.000 10
+NAG O3  O3  O 0 1 N N N -2.127 -0.207 -0.810 11
+NAG O4  O4  O 0 1 N N N -1.997  2.511  0.019 12
+NAG O5  O5  O 0 1 N N N  1.522  1.684 -0.292 13
+NAG O6  O6  O 0 1 N N N -0.575  4.566  0.350 14
+NAG O7  O7  O 0 1 N N N  0.842 -2.342  1.766 15
+NAG H1  H1  H 0 1 N N N  1.355  0.112  1.393 16
+NAG H2  H2  H 0 1 N N N  0.165 -0.474  1.446 17
+NAG H3  H3  H 0 1 N N N -1.215  0.228  1.019 18
+NAG H4  H4  H 0 1 N N N -0.756  1.860 -1.514 19
+NAG H5  H5  H 0 1 N N N  0.265  2.330  1.312 20
+NAG H61 H61 H 0 1 N N N  0.643  3.982 -1.221 21
+NAG H62 H62 H 0 1 N N N  1.480  4.270  0.325 22
+NAG H81 H81 H 0 1 N N N  0.726 -4.766  0.820 23
+NAG H82 H82 H 0 1 N N N  1.333 -3.847  2.232 24
+NAG H83 H83 H 0 1 N N N -0.423 -3.898  1.910 25
+NAG HN2 HN2 H 0 1 N N N  0.357 -2.361 -1.556 26
+NAG HO1 HO1 H 0 1 N Y N  3.351 -0.049  0.487 27
+NAG HO3 HO3 H 0 1 N N N -2.116 -1.159 -0.750 28
+NAG HO4 HO4 H 0 1 N Y N -2.015  3.421 -0.282 29
+NAG HO6 HO6 H 0 1 N N N -0.480  5.483  0.114 30
+#
+loop_
+_chem_comp_bond.comp_id
+_chem_comp_bond.atom_id_1
+_chem_comp_bond.atom_id_2
+_chem_comp_bond.value_order
+_chem_comp_bond.pdbx_aromatic_flag
+_chem_comp_bond.pdbx_stereo_config
+_chem_comp_bond.pdbx_ordinal
+NAG C1  C2  SING N N  1
+NAG C1  O1  SING N N  2
+NAG C1  O5  SING N N  3
+NAG C1  H1  SING N N  4
+NAG C2  C3  SING N N  5
+NAG C2  N2  SING N N  6
+NAG C2  H2  SING N N  7
+NAG C3  C4  SING N N  8
+NAG C3  O3  SING N N  9
+NAG C3  H3  SING N N 10
+NAG C4  C5  SING N N 11
+NAG C4  O4  SING N N 12
+NAG C4  H4  SING N N 13
+NAG C5  C6  SING N N 14
+NAG C5  O5  SING N N 15
+NAG C5  H5  SING N N 16
+NAG C6  O6  SING N N 17
+NAG C6  H61 SING N N 18
+NAG C6  H62 SING N N 19
+NAG C7  C8  SING N N 20
+NAG C7  N2  SING N N 21
+NAG C7  O7  DOUB N N 22
+NAG C8  H81 SING N N 23
+NAG C8  H82 SING N N 24
+NAG C8  H83 SING N N 25
+NAG N2  HN2 SING N N 26
+NAG O1  HO1 SING N N 27
+NAG O3  HO3 SING N N 28
+NAG O4  HO4 SING N N 29
+NAG O6  HO6 SING N N 30
+#

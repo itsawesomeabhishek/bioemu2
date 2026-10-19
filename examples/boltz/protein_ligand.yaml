@@ -1,0 +1,8 @@
+version: 1
+sequences:
+  - protein:
+      id: [A, B]
+      sequence: RMKQLEDKVEELLSKNYHLENEVARLKKLVGER  # GCN4 leucine zipper (PDB 2ZTA)
+  - ligand:
+      id: L
+      smiles: CCO

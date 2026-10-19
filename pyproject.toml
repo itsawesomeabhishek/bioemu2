@@ -1,0 +1,146 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bioemu2"
+version = "0.1.0rc0"
+description = "Local protein structure and conformational sampling with BioEmu2."
+requires-python = ">=3.12"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "licenses/LICENSE.*", "NOTICES.md"]
+classifiers = ["Operating System :: POSIX :: Linux"]
+dependencies = [
+    "biopython>=1.88",
+    "biotite>=1.5",
+    "click",
+    "einops",
+    "huggingface_hub",
+    "hydra-core",
+    "mdtraj",
+    "numba",
+    "numpy<2.5",
+    "omegaconf",
+    "openmm",
+    "pdbecif",
+    "pydantic",
+    "pyyaml",
+    "rdkit",
+    "requests",
+    "scipy",
+    "tenacity",
+    # Keep Torch below 2.14 until cuEquivariance GPU compatibility is validated.
+    "torch>=2.11,<2.14",
+    "tqdm",
+    "triton; sys_platform == 'linux'",
+]
+
+[project.optional-dependencies]
+cuda = [
+    "cuequivariance==0.11.1; sys_platform == 'linux'",
+    "cuequivariance-torch==0.11.1; sys_platform == 'linux'",
+    "cuequivariance-ops-torch-cu13==0.11.1; sys_platform == 'linux'",
+    "cuequivariance-ops-cu13==0.11.1; sys_platform == 'linux'",
+]
+# CUDA 12.6 builds for GPUs that CUDA 13 no longer supports (compute capability 7.0).
+cuda12 = [
+    "torch>=2.11,<2.14",
+    "cuequivariance==0.11.1; sys_platform == 'linux'",
+    "cuequivariance-torch==0.11.1; sys_platform == 'linux'",
+    "cuequivariance-ops-torch-cu12==0.11.1; sys_platform == 'linux'",
+    "cuequivariance-ops-cu12==0.11.1; sys_platform == 'linux'",
+]
+dev = [
+    "pre-commit",
+    "py3dmol>=2.5.5",
+    "pytest",
+    "pytest-cov",
+]
+viz = [
+    "ipykernel",
+    "ipywidgets>=8",
+    "matplotlib",
+    "playwright",
+    "py3Dmol",
+]
+
+[project.scripts]
+bioemu2 = "bioemu2.cli:main"
+
+[tool.uv]
+environments = ["sys_platform == 'linux'", "sys_platform == 'darwin'"]
+# Triton JIT-compiles C helpers against Python.h. uv-managed interpreters ship
+# these headers; system interpreters often lack them without python3.X-dev.
+python-preference = "only-managed"
+conflicts = [[{ extra = "cuda" }, { extra = "cuda12" }]]
+
+[[tool.uv.index]]
+name = "microsoft-pypi"
+url = "https://packagefeedproxy.microsoft.io/pypi/simple/"
+default = true
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu126", extra = "cuda12", marker = "sys_platform == 'linux'" }]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+bioemu2 = [
+    "logging_config.yaml",
+    "assets/*.pt",
+    "assets/*.yaml",
+    "assets/examples/systems/*.yaml",
+]
+"bioemu2.context_parallel" = ["scripts/cp_env.sh"]
+
+[tool.pytest.ini_options]
+markers = [
+    "gpu: marks tests that require or benefit from a CUDA GPU",
+    "requires_4gpu: requires at least four visible CUDA GPUs; automatically skipped otherwise",
+    "slow: marks tests that take longer than 30 seconds",
+    "serial: marks tests that should not run in parallel",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "UP",
+    "PLE",
+    "PLC0415",
+    "I",
+]
+ignore = [
+    "W605",
+    "E501",
+    "E402",
+    "E741",
+    "UP007",
+]
+extend-safe-fixes = ["UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["bioemu2"]
+
+[tool.ruff.lint.per-file-ignores]

@@ -1,0 +1,19 @@
+# Sperm whale myoglobin (PDB 101M) with bound sulfate, heme, and NBN ligands.
+entities:
+  - entity_type: protein
+    sequence: MVLSEGEWQLVLHVWAKVEADVAGHGQDILIRLFKSHPETLEKFDRVKHLKTEAEMKASEDLKKHGVTVLTALGAILKKKGHHEAELKPLAQSHATKHKIPIKYLEFISEAIIHVLHSRHPGNFGADAQGAMNKALELFRKDIAAKYKELGYQG
+    asym_ids: A
+  - entity_type: ligand
+    ccd_code: SO4
+    asym_ids: B
+  - entity_type: ligand
+    ccd_code: HEM
+    asym_ids: C
+  - entity_type: ligand
+    ccd_code: NBN
+    asym_ids: D
+
+contacts:
+  - token1: {asym_id: A, res_id: 96}
+    token2: {asym_id: C, atom_name: FE}
+    max_distance: 6.0

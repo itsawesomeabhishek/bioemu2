@@ -1,0 +1,42 @@
+repos:
+  - repo: local
+    hooks:
+      - id: generate-docs-toc
+        name: generate documentation tables of contents
+        entry: scripts/generate_docs_toc.py
+        language: python
+        files: ^docs/.*\.md$
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # v6.0.0
+    hooks:
+      - id: debug-statements
+        language_version: python3.12
+      - id: check-added-large-files
+        args: [--maxkb=500, --enforce-all]
+        exclude: ^uv\.lock$
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.10
+    hooks:
+      - id: ruff-format
+        args: [--config=pyproject.toml]
+        files: ^(src|tests)/.*\.py$
+      - id: ruff
+        args: [--fix, --config=pyproject.toml]
+        files: ^(src|tests)/.*\.py$
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 0f369d245750787ce34997d464ed9605391a5283  # v1.20.1
+    hooks:
+      - id: mypy
+        language_version: python3.12
+        additional_dependencies:
+          - types-PyYAML
+          - types-requests
+        args:
+          - --config-file=pyproject.toml
+          - --ignore-missing-imports
+          - --no-namespace-packages
+          - --python-version=3.12
+        files: ^(src|tests)/.*\.py$

@@ -1,0 +1,23 @@
+# Crambin (PDB 1AB1 / 1CRN) System.
+#
+# Native disulfide bridges (1-based residue index, SG-SG):
+#   Cys3  <-> Cys40
+#   Cys4  <-> Cys32
+#   Cys16 <-> Cys26
+#
+# In bioemu's canonical atom ordering for this 46-residue sequence, those SG
+# atom indices resolve to:
+#   Cys3.SG=19,  Cys40.SG=281
+#   Cys4.SG=25,  Cys32.SG=228
+#   Cys16.SG=115, Cys26.SG=187
+#
+# Threshold 2.5 angstrom sits just above the ideal ~2.05 angstrom SG-SG bond
+# length. Tests that want to enforce these contacts patch a `ContactPotential`
+# onto their steering config with the pairs above.
+entities:
+  - entity_type: protein
+    asym_ids:
+      - A
+    sequence: TTCCPSIVARSNFNVCRLPGTPEAICATYTGCIIIPGATCPGDYAN
+    mods: []
+bonds: []

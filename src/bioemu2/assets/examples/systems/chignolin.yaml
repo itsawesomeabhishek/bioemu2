@@ -1,0 +1,8 @@
+# Chignolin (CLN025) System.
+entities:
+  - entity_type: protein
+    asym_ids:
+      - A
+    sequence: GYDPETGTWG
+    mods: []
+bonds: []

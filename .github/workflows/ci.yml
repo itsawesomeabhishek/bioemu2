@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+    - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      with:
+        python-version: "3.12"
+    - name: Install uv
+      run: python -m pip install "uv==0.11.0"
+    - name: Install dependencies
+      run: uv sync --locked --extra dev
+    - name: Check formatting, linting, and types
+      run: uv run pre-commit run --verbose --all-files
+    - name: Run tests
+      run: uv run pytest tests -v
