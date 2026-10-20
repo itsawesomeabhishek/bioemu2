@@ -89,7 +89,7 @@ def warn_batch_size(num_tokens: int, num_samples: int, batch_size: int) -> None:
         max_batch_size = max(1, int(0.8 * total_mem / (0.3e6 * num_tokens) - num_tokens / 75))
     if (batch_size == 1) and (num_samples > 1):
         concern = "may be inefficient; consider increasing the batch size"
-    if num_tokens < 128 and num_samples > 64 and batch_size <= 64:
+    elif num_tokens < 128 and num_samples > 64 and batch_size <= 64:
         concern = "may underutilize the GPU; consider a larger batch"
     # generate_samples never runs more than num_samples at once.
     elif max_batch_size is not None and min(batch_size, num_samples) > max_batch_size:
